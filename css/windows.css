@@ -1,0 +1,100 @@
+/* windows.css – hacker style: sharp corners, dark, taller title bar */
+
+.windows-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 100;
+}
+
+.window {
+  position: absolute;
+  min-width: 300px;
+  min-height: 200px;
+  background-color: #010c17;
+  border: 1px solid #0a5a8a;
+  display: flex;
+  flex-direction: column;
+  pointer-events: auto;
+  font-family: monospace;
+  box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.3);
+  z-index: 100;
+}
+
+.window-titlebar {
+  background-color: #0a1a2a;
+  padding: 10px 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: grab;
+  user-select: none;
+  border-bottom: 1px solid #0a4a7a;
+}
+
+.window-titlebar:active {
+  cursor: grabbing;
+}
+
+.window-title {
+  font-size: 0.85rem;
+  font-weight: normal;
+  color: #0aacff;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  letter-spacing: 0.5px;
+}
+
+.window-title-icon {
+  font-family: monospace;
+  font-weight: bold;
+  color: #0aacff;
+}
+
+.window-close {
+  background: #0aacff;
+  border: none;
+  color: #010c17;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 0;
+  margin: 0;
+  width: 24px;
+  height: 24px;
+  line-height: 24px;
+  text-align: center;
+  transition:
+    background 0.1s,
+    transform 0.05s;
+}
+
+.window-close:hover {
+  background: #00ff88;
+  color: #010c17;
+  transform: scale(0.95);
+}
+
+.window-content {
+  flex: 1;
+  padding: 12px;
+  overflow-y: auto;
+  color: #cbe0f0;
+  font-size: 0.8rem;
+  line-height: 1.5;
+  background-color: #010c17;
+}
+
+.window-content::-webkit-scrollbar {
+  width: 6px;
+}
+.window-content::-webkit-scrollbar-track {
+  background: #0a1a2a;
+}
+.window-content::-webkit-scrollbar-thumb {
+  background: #0a5a8a;
+}

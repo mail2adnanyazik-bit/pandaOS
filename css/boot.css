@@ -1,0 +1,111 @@
+/* boot.css – boot overlay styles */
+
+.boot-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #010c17;
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Courier New", monospace;
+}
+
+.boot-terminal {
+  width: 600px;
+  max-width: 80%;
+  background-color: #010c17;
+  border: 1px solid #0a4a7a;
+  padding: 20px;
+  box-shadow: 0 0 20px rgba(10, 100, 172, 0.3);
+}
+
+.boot-header {
+  color: #0aacff;
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #0a4a7a;
+  padding-bottom: 8px;
+}
+
+.boot-messages {
+  height: 200px;
+  overflow-y: auto;
+  color: #00ff88;
+  font-size: 0.8rem;
+  margin-bottom: 20px;
+  background-color: #00000030;
+  padding: 8px;
+}
+
+.boot-messages div {
+  margin-bottom: 4px;
+  white-space: nowrap;
+  overflow-x: hidden;
+  text-overflow: ellipsis;
+}
+
+.boot-progress-container {
+  height: 4px;
+  background-color: #0a2a44;
+  margin-bottom: 20px;
+}
+
+.boot-progress {
+  width: 0%;
+  height: 100%;
+  background-color: #00ff88;
+  transition: width 0.2s linear;
+}
+
+.login-line {
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #cbe0f0;
+  font-size: 0.9rem;
+}
+
+.login-line input {
+  background: #010c17;
+  border: 1px solid #0a4a7a;
+  color: #cbe0f0;
+  padding: 6px 10px;
+  font-family: monospace;
+  width: 200px;
+  outline: none;
+}
+
+.login-line input:focus {
+  border-color: #0aacff;
+}
+
+.login-error {
+  color: #f07178;
+  font-size: 0.8rem;
+  margin-bottom: 12px;
+}
+
+.login-btn {
+  background: #0a2a44;
+  border: 1px solid #0a5a8a;
+  color: #cbe0f0;
+  padding: 6px 16px;
+  font-family: monospace;
+  cursor: pointer;
+  transition: background 0.1s;
+}
+
+.login-btn:hover {
+  background: #0a3a5a;
+  color: #0aacff;
+}
+
+.login-line input::placeholder {
+  color: #2a6a4a;
+  font-style: italic;
+}

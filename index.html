@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=no"
+    />
+    <title>pandaOS</title>
+    <link rel="stylesheet" href="css/boot.css" />
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/desktop.css" />
+    <link rel="stylesheet" href="css/windows.css" />
+    <link rel="stylesheet" href="css/apps.css" />
+  </head>
+  <body>
+    <!-- Boot / Login Overlay -->
+    <div id="boot-overlay" class="boot-overlay">
+      <div class="boot-terminal">
+        <div class="boot-header">pandaOS v1.0 boot sequence</div>
+        <div id="boot-messages" class="boot-messages"></div>
+        <div class="boot-progress-container">
+          <div id="boot-progress" class="boot-progress"></div>
+        </div>
+        <div id="login-area" style="display: none">
+          <div class="login-line">
+            <span>login:</span>
+            <input
+              type="text"
+              id="login-username"
+              placeholder="Username : panda"
+              autocomplete="off"
+            />
+          </div>
+          <div class="login-line">
+            <span>password:</span>
+            <input
+              type="password"
+              id="login-password"
+              placeholder="Password : UseNvim"
+              autocomplete="off"
+            />
+          </div>
+          <div id="login-error" class="login-error"></div>
+          <button id="login-btn" class="login-btn">Authenticate</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Desktop background -->
+    <div id="desktop" class="desktop"></div>
+
+    <!-- Taskbar -->
+    <div id="taskbar" class="taskbar">
+      <div id="start-button" class="start-button">
+        <span class="start-icon">$</span>
+        <span class="start-text">pandaOS</span>
+      </div>
+
+      <!-- DOCK (all apps) -->
+      <div id="dock" class="dock">
+        <div class="dock-icon" data-app="terminal">
+          <img src="assets/icons/terminal.png" alt="terminal" />
+        </div>
+        <div class="dock-icon" data-app="projects">
+          <img src="assets/icons/projects.png" alt="projects" />
+        </div>
+        <div class="dock-icon" data-app="profile">
+          <img src="assets/icons/profile.png" alt="profile" />
+        </div>
+        <div class="dock-icon" data-app="music">
+          <img src="assets/icons/music.png" alt="music" />
+        </div>
+        <div class="dock-icon" data-app="calculator">
+          <img src="assets/icons/calculator.png" alt="calculator" />
+        </div>
+        <div class="dock-icon" data-app="notes">
+          <img src="assets/icons/notes.png" alt="notes" />
+        </div>
+        <div class="dock-icon" data-app="settings">
+          <img src="assets/icons/settings.png" alt="settings" />
+        </div>
+      </div>
+
+      <div id="taskbar-windows" class="taskbar-windows">
+        <!-- Open window icons will be here -->
+      </div>
+
+      <div id="taskbar-right" class="taskbar-right">
+        <div id="volume-control" class="volume-control">
+          <span class="volume-icon">VOL</span>
+          <input type="range" id="volume-slider" min="0" max="100" value="70" />
+          <div id="volume-meter" class="volume-meter">
+            <div id="volume-level" class="volume-level"></div>
+          </div>
+        </div>
+        <div id="clock-date" class="clock-date">
+          <span id="clock">--:--:--</span>
+          <span id="date">--</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Start menu (hidden by default) -->
+    <div id="start-menu" class="start-menu hidden">
+      <div class="start-menu-header">
+        <span class="start-menu-icon">$</span>
+        <span class="start-menu-title">pandaOS</span>
+      </div>
+      <div class="start-menu-apps">
+        <button data-app="profile" class="start-app">Panda Profile</button>
+        <button data-app="settings" class="start-app">Settings</button>
+        <button data-app="terminal" class="start-app">Terminal</button>
+      </div>
+      <div class="start-menu-footer">
+        <span>v1.0</span>
+      </div>
+    </div>
+
+    <!-- Container for all draggable windows -->
+    <div id="windows-container" class="windows-container"></div>
+
+    <!-- Spotlight Search Overlay -->
+    <div id="search-overlay" class="search-overlay hidden">
+      <div class="search-container">
+        <input
+          type="text"
+          id="search-input"
+          placeholder="Search apps..."
+          autocomplete="off"
+        />
+        <div id="search-results" class="search-results"></div>
+      </div>
+    </div>
+
+    <!-- JavaScript files (modular apps first, then desktop, boot, spotlight) -->
+    <script src="js/utils.js"></script>
+    <script src="js/drag.js"></script>
+    <script src="js/apps/terminal.js"></script>
+    <script src="js/apps/projects.js"></script>
+    <script src="js/apps/profile.js"></script>
+    <script src="js/apps/music.js"></script>
+    <script src="js/apps/calculator.js"></script>
+    <script src="js/apps/notes.js"></script>
+    <script src="js/apps/settings.js"></script>
+    <script src="js/desktop.js"></script>
+    <script src="js/spotlight.js"></script>
+    <script src="js/boot.js"></script>
+  </body>
+</html>

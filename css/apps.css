@@ -1,0 +1,279 @@
+/* Settings app styles */
+.settings-container {
+  display: flex;
+  height: 100%;
+  background-color: #010c17;
+}
+
+.settings-tabs {
+  width: 120px;
+  border-right: 1px solid #0a4a7a;
+  display: flex;
+  flex-direction: column;
+  background-color: #0a1a2a;
+}
+
+.settings-tab {
+  background: none;
+  border: none;
+  color: #cbe0f0;
+  padding: 12px 16px;
+  text-align: left;
+  font-family: monospace;
+  cursor: pointer;
+  transition: background 0.1s;
+}
+
+.settings-tab:hover {
+  background-color: #0a2a44;
+  color: #0aacff;
+}
+
+.settings-tab.active {
+  background-color: #0a2a44;
+  color: #0aacff;
+  border-left: 3px solid #0aacff;
+}
+
+.settings-content {
+  flex: 1;
+  padding: 16px;
+  overflow-y: auto;
+}
+
+.settings-pane {
+  display: none;
+}
+
+.settings-pane.active {
+  display: block;
+}
+
+.settings-pane h3 {
+  margin-top: 0;
+  color: #0aacff;
+}
+
+.settings-pane input[type="range"] {
+  width: 200px;
+  margin: 8px 0;
+}
+
+.settings-pane kbd {
+  background-color: #0a2a44;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-family: monospace;
+  color: #00ff88;
+}
+
+/* Music player */
+.music-player {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 12px;
+  gap: 12px;
+}
+.now-playing {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background-color: #0a1a2a;
+  border: 1px solid #0a4a7a;
+  padding: 12px;
+}
+.album-art {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border: 1px solid #0aacff;
+}
+.song-info {
+  flex: 1;
+}
+.current-title {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #0aacff;
+}
+.current-artist {
+  font-size: 0.8rem;
+  color: #6a8a9a;
+}
+.music-playlist {
+  flex: 1;
+  overflow-y: auto;
+  border: 1px solid #0a4a7a;
+  background-color: #010c17;
+}
+.music-playlist h4 {
+  margin: 0;
+  padding: 8px;
+  background-color: #0a1a2a;
+  border-bottom: 1px solid #0a4a7a;
+}
+.music-playlist ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.music-playlist li {
+  padding: 8px 12px;
+  cursor: pointer;
+  border-bottom: 1px solid #0a4a7a;
+  color: #cbe0f0;
+}
+.music-playlist li:hover {
+  background-color: #0a2a44;
+  color: #0aacff;
+}
+.music-playlist li.active {
+  background-color: #0a2a44;
+  border-left: 3px solid #0aacff;
+}
+.music-controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  border-top: 1px solid #0a4a7a;
+  padding-top: 10px;
+}
+.player-buttons button {
+  background: #0a2a44;
+  border: 1px solid #0a4a7a;
+  color: #cbe0f0;
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 6px 12px;
+  transition: background 0.1s;
+}
+.player-buttons button:hover {
+  background: #0a3a5a;
+  color: #0aacff;
+}
+.music-controls .volume-slider {
+  width: 100px;
+  margin-left: auto;
+}
+
+/* Calculator buttons */
+.calc-buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 6px;
+  margin-top: 12px;
+}
+.calc-btn {
+  background-color: #0a1a2a;
+  border: 1px solid #0a4a7a;
+  color: #cbe0f0;
+  font-size: 1.2rem;
+  font-family: monospace;
+  padding: 12px 0;
+  cursor: pointer;
+  transition:
+    background 0.1s,
+    border-color 0.1s;
+}
+.calc-btn:hover {
+  background-color: #0a2a44;
+  border-color: #0aacff;
+  color: #0aacff;
+}
+.calc-btn.op {
+  background-color: #0a2a44;
+  color: #0aacff;
+}
+.calc-btn.op:hover {
+  background-color: #0a3a5a;
+  color: #00ff88;
+}
+
+/* Notes buttons */
+.notes-btn {
+  background-color: #0a2a44;
+  border: 1px solid #0a4a7a;
+  color: #cbe0f0;
+  font-family: monospace;
+  font-size: 0.8rem;
+  padding: 6px 12px;
+  cursor: pointer;
+  transition:
+    background 0.1s,
+    border-color 0.1s;
+}
+.notes-btn:hover {
+  background-color: #0a3a5a;
+  border-color: #0aacff;
+  color: #0aacff;
+}
+
+.calc-display {
+  background-color: #010c17;
+  border: 1px solid #0a4a7a;
+  color: #0aacff;
+  font-size: 2rem;
+  text-align: right;
+  padding: 12px;
+  font-family: monospace;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.calc-display {
+  background-color: #010c17;
+  border: 1px solid #0a4a7a;
+  color: #0aacff;
+  font-size: 2rem;
+  font-family: monospace;
+  text-align: right;
+  padding: 12px;
+  width: 100%;
+  box-sizing: border-box;
+  outline: none;
+}
+.calc-display:focus {
+  border-color: #0aacff;
+}
+
+.markdown-body mark {
+  background-color: #ffff00;
+  color: #000;
+  padding: 0 2px;
+}
+.markdown-body del {
+  color: #f07178;
+}
+
+.music-progress {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 8px 0;
+  padding: 0 8px;
+}
+.seek-bar {
+  flex: 1;
+  height: 4px;
+  -webkit-appearance: none;
+  background: #0a2a44;
+  outline: none;
+}
+.seek-bar::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 12px;
+  height: 12px;
+  background: #0aacff;
+  cursor: pointer;
+  border: none;
+  border-radius: 50%;
+}
+#current-time,
+#duration-time {
+  font-size: 0.7rem;
+  color: #cbe0f0;
+  font-family: monospace;
+  min-width: 40px;
+}
