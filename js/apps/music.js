@@ -164,14 +164,14 @@ window.pandaOS.music = {
       albumArt.onerror = () => {
         albumArt.style.display = "none";
       };
-      playPauseBtn.innerHTML = "⏸";
+      playPauseBtn.innerHTML = "| |";
       updateActivePlaylist();
     }
 
     function togglePlayPause() {
       if (audio.paused) {
         audio.play();
-        playPauseBtn.innerHTML = "⏸";
+        playPauseBtn.innerHTML = "| |";
       } else {
         audio.pause();
         playPauseBtn.innerHTML = "▶";
