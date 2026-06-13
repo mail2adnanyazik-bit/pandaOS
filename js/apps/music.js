@@ -26,7 +26,7 @@ window.pandaOS.music = {
         <audio id="audio-player"></audio>
         <div class="player-buttons">
           <button id="prev" title="Previous">&lt;&lt;</button>
-          <button id="play-pause" title="Play/Pause">&gt;</button>
+          <button id="play-pause" title="Play/Pause">▶</button>
           <button id="next" title="Next">&gt;&gt;</button>
         </div>
       </div>
@@ -87,6 +87,18 @@ window.pandaOS.music = {
     const seekBar = document.getElementById("seek-bar");
     const currentTimeSpan = document.getElementById("current-time");
     const durationTimeSpan = document.getElementById("duration-time");
+
+    // Volume sync: listen to dock slider directly
+    const dockVolume = document.getElementById("volume-slider");
+    if (dockVolume) {
+      const updateAudioVolume = () => {
+        audio.volume = dockVolume.value / 100;
+      };
+      updateAudioVolume();
+      dockVolume.addEventListener("input", updateAudioVolume);
+    } else if (window.pandaOS.masterVolume !== undefined) {
+      audio.volume = window.pandaOS.masterVolume;
+    }
 
     function formatTime(seconds) {
       if (isNaN(seconds)) return "0:00";
@@ -152,17 +164,17 @@ window.pandaOS.music = {
       albumArt.onerror = () => {
         albumArt.style.display = "none";
       };
-      playPauseBtn.innerHTML = "&#10074;&#10074;"; // '||' (pause)
+      playPauseBtn.innerHTML = "⏸";
       updateActivePlaylist();
     }
 
     function togglePlayPause() {
       if (audio.paused) {
         audio.play();
-        playPauseBtn.innerHTML = "&#10074;&#10074;"; // '||'
+        playPauseBtn.innerHTML = "⏸";
       } else {
         audio.pause();
-        playPauseBtn.innerHTML = "▶"; // '>'
+        playPauseBtn.innerHTML = "▶";
       }
     }
 
@@ -190,10 +202,6 @@ window.pandaOS.music = {
     playPauseBtn.addEventListener("click", togglePlayPause);
     prevBtn.addEventListener("click", prevSong);
     nextBtn.addEventListener("click", nextSong);
-
-    if (window.pandaOS.masterVolume !== undefined) {
-      audio.volume = window.pandaOS.masterVolume;
-    }
 
     renderPlaylist();
     currentIndex = 0;
